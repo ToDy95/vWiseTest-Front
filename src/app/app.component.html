@@ -1,0 +1,131 @@
+<div class="row first-line">
+  <select class="select-tag" (change)="onChooseATag($event)">
+    <option value="0">All</option>
+    <option *ngFor="let tag of myTag" value="{{tag.title}}">
+      {{ tag.title }}
+    </option>
+  </select>
+
+  <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>
+</div>
+<div class="row">
+  <div class="photo" *ngFor="let photo of myPhoto">
+    <img [src]="photo.url" class="card-img" alt="...">
+    <div class="sub-photo">
+      <h3 class="photo-name">{{ photo.title }}</h3>
+      <h2 (click)="edit(editContent)" id="{{ photo.id }}">Edit</h2>
+      <h2 (click)="delete($event)" id="{{ photo.id }}">X</h2>
+    </div>
+
+  </div>
+</div>
+
+
+<!--  MODAL -->
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form #photoPost="ngForm" (ngSubmit)="onSubmit(photoPost.value)">
+      <div class="mb-3">
+        <label for="url">URL</label>
+
+        <div class="input-group">
+          <input
+            id="url"
+            class="form-control"
+            placeholder="url"
+            name="url"
+            type="text"
+            ngModel
+          />
+        </div>
+        <label for="title">Title</label>
+        <div class="input-group">
+          <input
+            id="title"
+            class="form-control"
+            placeholder="title"
+            name="title"
+            type="text"
+            ngModel
+          />
+        </div>
+        <label for="tag">TAG</label>
+        <div class="input-group">
+          <input
+            id="tag"
+            class="form-control"
+            placeholder="tag"
+            name="tag"
+            type="text"
+            ngModel
+          />
+        </div>
+      </div>
+      <button type="submit">Save</button>
+    </form>
+  </div>
+</ng-template>
+
+
+<!-- EDIT-MODAL -->
+<ng-template #editContent let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title-edit">Profile update</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form #photoUpdate="ngForm" (ngSubmit)="onSubmit(photoUpdate.value)">
+      <div class="mb-3">
+        <label for="url">URL</label>
+
+        <div class="input-group">
+          <input
+            id="url-edit"
+            class="form-control"
+            placeholder="url"
+            name="url"
+            type="upload"
+
+            ngModel
+          />
+        </div>
+        <label for="title">Title</label>
+        <div class="input-group">
+          <input
+            id="title-edit"
+            class="form-control"
+            placeholder="title"
+            name="title"
+            type="text"
+
+            ngModel
+          />
+        </div>
+        <label for="tag">TAG</label>
+        <div class="input-group">
+          <input
+            id="tag-edit"
+            class="form-control"
+            placeholder="tag"
+            name="tag"
+            type="text"
+
+            ngModel
+          />
+        </div>
+      </div>
+      <button type="submit">Save</button>
+    </form>
+  </div>
+</ng-template>
+
+<hr/>
+
+<pre>{{ closeResult }}</pre>
+
+<!--  EDIT -MODAL-->
+

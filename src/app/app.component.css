@@ -1,0 +1,35 @@
+.row {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+}
+.first-line {
+ width: auto;
+}
+.first-line select {
+width: 300px
+}
+.first-line button {
+  width: 300px;
+}
+.photo{
+  max-width: 300px;
+  padding: 30px;
+}
+.sub-photo h2:nth-child(2) {
+  color:blue;
+  float: right;
+  margin: 5px;
+  border: 1px blue solid;
+}
+.sub-photo h2:nth-child(3) {
+ color:red;
+ float: right;border: 1px red solid;
+}
+
+
+/*img {*/
+/*  max-width: 300px;*/
+/*  padding: 10px;*/
+/*  max-height: 300px;*/
+/*}*/
